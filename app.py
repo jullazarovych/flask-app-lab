@@ -10,9 +10,12 @@ def home():
     """View for the Home page of your website."""
     agent=request.user_agent
     return f"This is your homepage :) - {agent} "
-@app.route("/hi/<string:name>/<int:age>")
-def greetings(name, age):
+@app.route("/hi/<string:name>")
+def greetings(name):
     name= name.upper()
-    return f"Welcome, {name} - {age}"
+    age = request.args.get("age", 0, int) # за завмовчуванням якщо вік не введений то 0, get по ключу витягує, args — словник
+    year=2024-age
+    return f"Welcome, {name} - {year}"
+
 if __name__=='__main__':
     app.run()
