@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, url_for
-app=Flask(__name__)
 
+app=Flask(__name__)
+app.config.from_pyfile("config.py") #словник
 @app.route('/')
 def main():
     return '<h1>Hello, world</h1>', 200
