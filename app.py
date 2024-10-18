@@ -1,4 +1,4 @@
-from flask import Flask, request 
+from flask import Flask, request, redirect, url_for
 app=Flask(__name__)
 
 @app.route('/')
@@ -10,6 +10,7 @@ def home():
     """View for the Home page of your website."""
     agent=request.user_agent
     return f"This is your homepage :) - {agent} "
+
 @app.route("/hi/<string:name>")
 def greetings(name):
     name= name.upper()
@@ -17,5 +18,10 @@ def greetings(name):
     year=2024-age
     return f"Welcome, {name} - {year}"
 
+@app.route("/admin")
+def admin():
+   # to_url="/hi/administrator?age=45"
+    to_url=url_for("greetings", name="administrator", age=45, external=True) #external абсолютний шлях
+    return redirect(to_url)
 if __name__=='__main__':
     app.run()
