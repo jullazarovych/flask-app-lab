@@ -45,7 +45,7 @@ def deatil_post(id):
 
 @app.route('/resume')
 def resume():
-    return render_template('resume.html')
+    return render_template('resume.html', title="Резюме ")
 
 if __name__=='__main__':
     app.run()
