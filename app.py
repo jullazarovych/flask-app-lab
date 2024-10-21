@@ -1,16 +1,16 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, render_template
 
 app=Flask(__name__)
 app.config.from_pyfile("config.py") #словник
 @app.route('/')
 def main():
-    return '<h1>Hello, world</h1>', 200
+    return render_template("hello.html")
 
 @app.route('/homepage') 
 def home():
     """View for the Home page of your website."""
-    agent=request.user_agent
-    return f"This is your homepage :) - {agent} "
+    agent=request.user_agent                        #контекст
+    return render_template("home.html", agent=agent) # зліва змінна в шаблоні, справа її значення 
 
 @app.route("/hi/<string:name>")
 def greetings(name):
