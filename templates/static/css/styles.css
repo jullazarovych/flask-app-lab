@@ -4,11 +4,15 @@ body {
     background-color: #c8cef6;
 }
 header{
+    font-size: large;
     background-color: #2f354f;
     color: white;
     text-align: center;
     padding: 15px ;
     margin-left: 20px;
+}
+img{
+    height: 60px;
 }
 nav {
     margin-bottom: 25px;

@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% block title %} Резюме {% endblock %}
-{% block myheader %}
 
+{% block myheader %}
 <h1>Лазарович Юлія Ігорівна</h1>
 <p>Email: yuliia.lazarovych.22@pnu.edu.ua </p>
-
 {% endblock %}
+
 {% block image %}
-
-<img src="{{url_for('static', filename='images/resume_icon.jpeg')}}" alt="Лого">
+<img src="{{ url_for('static', filename='images/resume_icon.jpeg') }}" alt="Лого">
 {% endblock %}
+
 {% block content %}
     
     <section id="about">
         <h2>Про себе</h2>
-        <p>Я — спеціаліст з програмування з досвідом роботи в створенні веб-додатків.</p>
+        <p>Я — студентка спеціальності інженерія програмного забезпечення, молодий спеціаліст в сфері веб-аплікацій.</p>
     </section>
 
     <section id="education">
@@ -38,7 +38,8 @@
         <h2>Досвід роботи</h2>
         <h3>Проекти</h3>
         <ul>
-            <li><strong>Веб-додаток KeepInTouch</strong> аплікація афіша подій для університету.</li>
+            <li><strong>Веб-аплікація KeepInTouch</strong> аплікація афіша подій для університету.</li>
+       
         </ul>
     </section>
     {% endblock %}
