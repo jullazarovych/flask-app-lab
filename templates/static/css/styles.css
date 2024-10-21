@@ -1,0 +1,32 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c8cef6;
+}
+header{
+    background-color: #2f354f;
+    color: white;
+    text-align: center;
+    padding: 15px ;
+    margin-left: 20px;
+}
+nav {
+    margin-bottom: 25px;
+}
+nav a {
+    color: white;
+    padding: 14px 20px;
+    display: inline-block;
+}
+nav a:hover {
+    background-color: #555;
+}
+.container {
+    max-width: 800px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+footer {
+    margin-top: 20px;
+}

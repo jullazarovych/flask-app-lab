@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %} Резюме {% endblock %}
+{% block myheader %}
+
+<h1>Лазарович Юлія Ігорівна</h1>
+<p>Email: yuliia.lazarovych.22@pnu.edu.ua </p>
+
+{% endblock %}
+{% block image %}
+
+<img src="{{url_for('static', filename='images/resume_icon.jpeg')}}" alt="Лого">
+{% endblock %}
+{% block content %}
+    
+    <section id="about">
+        <h2>Про себе</h2>
+        <p>Я — спеціаліст з програмування з досвідом роботи в створенні веб-додатків.</p>
+    </section>
+
+    <section id="education">
+        <h2>Освіта</h2>
+        <ul>
+            <li><strong>Бакалавр інженерії програмного забезпечення</strong>, Прикарпатський національний університет імені Василя Стефаника, 2026 р.</li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Навички</h2>
+        <ul>
+            <li>Мови програмування: Python, JavaScript, HTML, CSS</li>
+            <li>Фреймворки: Flask</li>
+            <li>Бази даних: MySQL, PostgreSQL, MongoDB</li>
+            <li>Інструменти: Git</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <h2>Досвід роботи</h2>
+        <h3>Проекти</h3>
+        <ul>
+            <li><strong>Веб-додаток KeepInTouch</strong> аплікація афіша подій для університету.</li>
+        </ul>
+    </section>
+    {% endblock %}
