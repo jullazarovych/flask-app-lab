@@ -4,7 +4,7 @@ app=Flask(__name__)
 app.config.from_pyfile("config.py") #словник
 @app.route('/')
 def main():
-    return render_template("hello.html")
+    return render_template("base.html")
 
 @app.route('/homepage') 
 def home():
