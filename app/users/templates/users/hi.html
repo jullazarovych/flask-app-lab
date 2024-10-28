@@ -12,7 +12,7 @@
     </ul>
 </nav>
     <h1>Hello :) </h1>
-    <h1>User: {{name | title}}</h1> <!-- | - фільтр-->
+    <h1>User: {{name | title | upper}}</h1> <!-- | - фільтр-->
     {% if age %}
         <h1 class="age-text age-provided">Age: {{age}}</h1>
     {% else %}
