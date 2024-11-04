@@ -9,4 +9,5 @@ from app.posts import post_bp
 app.register_blueprint(post_bp)
 
 from app.users import users_bp 
-app.register_blueprint(users_bp)
+
+app.register_blueprint(users_bp, url_prefix="/users")
