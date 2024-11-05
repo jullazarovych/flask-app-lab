@@ -1,78 +1,301 @@
-
 body {
     font-family: Arial, sans-serif;
     background-color: #c8cef6;
+    color: #333;
 }
-header{
-    font-size: large;
-    background-color: #2f354f;
-    color: white;
-    text-align: center;
-    padding: 15px ;
-}
-img{
-    height: 100px;
-}
-nav {
-    margin-bottom: 25px;
-}
-nav a {
-    color: white;
-    padding: 14px 20px;
-    display: inline-block;
-}
-nav a:hover {
-    background-color: #555;
-}
+
 .container {
     max-width: 800px;
     padding: 20px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
+
+body.dark-theme {
+    background-color: #363946;
+    color: #f1f1f1;
+}
+
+.dark-theme .container {
+    background-color: #696773;
+    color: #f1f1f1;
+}
+
+.dark-theme header,
+.dark-theme nav a,
+.dark-theme form button,
+.dark-theme footer {
+    background-color: #819595;
+    color: rgb(38, 39, 39);
+}
+.dark-theme table th, .dark-theme table td {
+    border: 1px solid #555;
+    color:#f4f4f4;
+    background-color: #909090;
+}
+
+.dark-theme table th {
+    background-color: #909090;
+}
+
+.dark-theme table tr:nth-child(even) {
+    background-color: #909090;
+}
+
+.dark-theme .userlist {
+    background-color: #909090;
+}
+
+body.light-theme {
+    background-color:#FAFAC6;
+    color: #474350;
+}
+
+.light-theme .container {
+    background-color: #FCFFEB;
+}
+
+.light-theme header,
+.light-theme nav a,
+.light-theme form button,
+.light-theme footer {
+    background-color: #FECDAA;
+    color: #474350;
+}
+
+header {
+    font-size: large;
+    text-align: center;
+    padding: 15px;
+}
+
+nav {
+    margin-bottom: 25px;
+}
+
+nav a {
+    color: white;
+    padding: 14px 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
 footer {
     margin-top: 20px;
 }
-.userlist{
-    background-color: #f4f4f9;  
+.dark-theme form {
+    background-color: #444;
+    border: 1px solid #666;
+    color: #ddd;
+}
+
+.dark-theme form label {
+    color: #f1f1f1;
+}
+
+.dark-theme form input[type="text"],
+.dark-theme form input[type="password"],
+.dark-theme form input[type="number"] {
+    background-color: #555;
+    color: #f1f1f1;
+    border: 1px solid #666;
+}
+
+.dark-theme form input[type="text"]::placeholder,
+.dark-theme form input[type="password"]::placeholder,
+.dark-theme form input[type="number"]::placeholder {
+    color: #bbb;
+}
+
+.dark-theme form button {
+    background-color: #819595;
+    color: white;
+}
+.dark-theme form label {
+    display: block;
+    color:#333;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.dark-theme form button:hover {
+    background-color: #555;
+}
+.light-theme form {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f9f9fb;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.light-theme form button {
+    display: inline-block;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.light-theme form button:hover {
+    background-color: #496363;
+}
+
+.light-theme form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.light-theme form input[type="text"],
+.light-theme form input[type="password"],
+.light-theme form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+   table-layout: fixed; 
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 0 auto; 
+}
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    border: 1px solid #ddd;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+table th {
+    background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.userlist {
+    background-color: #f4f4f9;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
 nav.userlist ul {
-    list-style-type: none; 
+    list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 nav.userlist ul li {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 nav.userlist ul li a {
     text-decoration: none;
-    color: #333; 
+    color: #333;
     font-weight: bold;
     padding: 8px 12px;
     border-radius: 4px;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
     display: block;
 }
+
 nav.userlist ul li a:hover {
-    background-color: #62589e; 
-    color: white; 
+    background-color: #62589e;
+    color: white;
 }
+
 .age-text {
     font-size: 24px;
     font-weight: bold;
 }
 
 .age-provided {
-    color: green; 
+    color: green;
 }
 
 .age-missing {
-    color: red; 
+    color: red;
+}
+
+.container {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.light-theme {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.dark-theme {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+.dark-theme .flash {
+    background-color: #444;
+    color: #ddd;
+}
+
+.dark-theme table {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #444;
+}
+
+.dark-theme th, .dark-theme td {
+    border: 1px solid #666;
+}
+
+.theme-buttons {
+    margin: 15px 0;
+}
+
+.theme-button {
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+.theme-button.light {
+    background-color: #dca57e;
+}
+
+.theme-button.light:hover {
+    background-color: #6e4f38;;
+}
+
+.theme-button.dark {
+    background-color: #555;
+}
+
+.theme-button.dark:hover {
+    background-color: #333;
 }

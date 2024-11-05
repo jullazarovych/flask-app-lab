@@ -4,12 +4,61 @@
 
 
 {% block content %}
+<h2>Привіт, {{ username }}!</h2>
+<div class="container {% if theme == 'dark' %}dark-theme{% else %}light-theme{% endif %}">
+    <div class="theme-buttons">
+        <a href="{{ url_for('user_name.set_theme', theme='light') }}" class="theme-button light">Light Theme</a>
+        <a href="{{ url_for('user_name.set_theme', theme='dark') }}" class="theme-button dark">Dark Theme</a>
+    </div>
+ 
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
 
+<h3>Add a Cookie</h3>
+<form method="post" action="{{ url_for('user_name.set_cookie') }}">
+    <label>Key:</label>
+    <input type="text" name="key" required>
+    <br>
+    <label>Value:</label>
+    <input type="text" name="value" required>
+    <br>
+    <label>Expiration (seconds):</label>
+    <input type="number" name="expiry" required>
+    <br>
+    <button type="submit">Add Cookie</button>
+</form>
 
+<h3>Delete a Cookie</h3>
+<form method="post" action="{{ url_for('user_name.delete_cookie') }}">
+    <label>Key:</label>
+    <input type="text" name="key">
+    <br>
+    <button type="submit">Delete Cookie</button>
+</form>
 
-<hi>Hi, {{ username }}</hi>
-<br>
-<hr>
-<a href="{{url_for('user_name.logout')}}">logout</a>
+<h3>Current Cookies</h3>
+<div class="table-container">
+    <table border="1">
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+        {% for key, value in cookies.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<form action="{{ url_for('user_name.logout') }}" method="post">
+    <button type="submit">Вийти</button>
+</form>
 
 {% endblock %}
