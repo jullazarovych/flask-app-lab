@@ -34,6 +34,7 @@ def login():
 
     return render_template("login.html")
 
+
 @users_bp.route("/logout", methods=["GET", "POST"])
 def logout():
     session.pop('username', None)
@@ -42,6 +43,7 @@ def logout():
     flash("You succesfully log out", "success")
     
     return redirect(url_for('user_name.login'))
+
 
 @users_bp.route("/set_theme/<theme>")
 def set_theme(theme):
@@ -54,12 +56,14 @@ def set_theme(theme):
     flash(f"Theme set to {theme}.", "success")
     return response
 
+
 @users_bp.route("/<string:name>")
 def greetings(name):
     name= name.upper()
     age = request.args.get("age", 0, int) 
 
     return render_template("hi.html", name=name, age=age)
+
 
 @users_bp.route("/")
 def admin():
@@ -85,10 +89,12 @@ def set_cookie():
     flash(f"Cookie '{key}' added successfully", "success")
     return response
 
+
 @users_bp.route('/get_cookie')
 def get_cookie():
     username = request.cookies.get('username')
     return f'User: {username}'
+
 
 @users_bp.route('/delete_cookie', methods=["POST"])
 def delete_cookie():
