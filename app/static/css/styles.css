@@ -89,7 +89,7 @@ footer {
     margin-top: 20px;
 }
 .dark-theme form {
-    background-color: #444;
+    background-color: #696773;
     border: 1px solid #666;
     color: #ddd;
 }
@@ -101,20 +101,27 @@ footer {
 .dark-theme form input[type="text"],
 .dark-theme form input[type="password"],
 .dark-theme form input[type="number"] {
-    background-color: #555;
+    background-color: #a5a5a5;
     color: #f1f1f1;
     border: 1px solid #666;
-}
-
-.dark-theme form input[type="text"]::placeholder,
-.dark-theme form input[type="password"]::placeholder,
-.dark-theme form input[type="number"]::placeholder {
-    color: #bbb;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .dark-theme form button {
     background-color: #819595;
     color: white;
+    display: inline-block;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 .dark-theme form label {
     display: block;

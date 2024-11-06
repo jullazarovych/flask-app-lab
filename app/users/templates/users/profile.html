@@ -11,13 +11,6 @@
         <a href="{{ url_for('user_name.set_theme', theme='dark') }}" class="theme-button dark">Dark Theme</a>
     </div>
  
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    {% for category, message in messages %}
-      <div class="flash {{ category }}">{{ message }}</div>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
 
 <h3>Add a Cookie</h3>
 <form method="post" action="{{ url_for('user_name.set_cookie') }}">
