@@ -51,7 +51,8 @@ def get_posts():
 @post_bp.route('/<int:id>')
 def detail_post(id):
     posts = load_posts()
-    if id > 3:
+    total_posts = len(posts)
+    if id > total_posts or id < 1:
         abort(404)
     post=posts[id-1]
     return render_template("detail_post.html", post=post)
