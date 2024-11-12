@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
-{% block title %} POSTS {% endblock %}
+{% block title %}POSTS{% endblock %}
 {% block content %}
 
-    <h1>Arcticles</h1>
-    <ul>
+<h1>Articles</h1>
+<div class="card-container">
     {% for post in posts %}
-        <li> {{post["id"]}} — 
-            <a href="{{ url_for('posts.detail_post', id=post['id']) }}"> {{post["title"]}} </a>
-        </li>
-
+        <div class="card">
+            <div class="card-image" style="background-color: {% if post['image'] is not defined %}#ddd{% else %}url('{{ post['image'] }}'){% endif %}; background-size: cover; background-position: center;"></div>
+            <div class="card-content">
+                <h2>{{ post["title"] }}</h2>
+                <p>{{ post["content"][:100] }}{% if post["content"]|length > 100 %}...{% endif %}</p>
+                <a href="{{ url_for('posts.detail_post', id=post['id']) }}">Read more</a>
+            </div>
+        </div>
     {% endfor %}
-    </ul>
-    {% endblock %}
+</div>
+{% endblock %}
