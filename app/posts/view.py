@@ -2,18 +2,10 @@ from flask import render_template, abort, flash,redirect, url_for, session
 from . import  post_bp
 from .forms import PostForm
 import json
+from .utils import load_posts, save_post, get_post
 import os
 
-POSTS_FILE = "posts.json"
 
-def load_posts():
-    if os.path.exists(POSTS_FILE):
-        with open(POSTS_FILE, "r", encoding="utf-8") as file:
-            return json.load(file)
-    return []
-def save_posts(posts):
-    with open(POSTS_FILE, "w", encoding="utf-8") as file:
-        json.dump(posts, file, ensure_ascii=False, indent=4)
 
 @post_bp.route('/add_post', methods=["GET", "POST"])
 def add_post():
@@ -36,8 +28,7 @@ def add_post():
             "publish_date": publish_date,
             "category": category
         }
-        posts.append(new_post)
-        save_posts(posts)
+        save_post(new_post)
         flash(f"Post {title} added succesfully")
         return redirect(url_for(".get_posts"))
     

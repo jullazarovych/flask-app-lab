@@ -28,20 +28,29 @@
     },
     {
         "id": 4,
-        "title": "Python",
-        "content": "Some content",
+        "title": "sefsf",
+        "content": "sefsefsef",
         "author": "Anonymous",
         "is_active": true,
-        "publish_date": "2024-11-12",
+        "publish_date": "2024-11-26",
         "category": "tech"
     },
     {
         "id": 5,
-        "title": "Test",
-        "content": "Author",
-        "author": "student",
+        "title": "dfrgd",
+        "content": "sefsefsef",
+        "author": "Anonymous",
         "is_active": true,
-        "publish_date": "2024-11-12",
+        "publish_date": "2024-11-26",
+        "category": "tech"
+    },
+    {
+        "id": 6,
+        "title": "esrsre",
+        "content": "dfsfes",
+        "author": "Anonymous",
+        "is_active": true,
+        "publish_date": "2024-11-01",
         "category": "tech"
     }
 ]

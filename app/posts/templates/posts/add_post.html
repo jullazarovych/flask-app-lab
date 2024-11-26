@@ -10,7 +10,7 @@
 
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        {{ render_field(form.title) }} 
+        {{ render_field(form.title, placeholder="Enter title") }} 
         {{ render_field(form.content) }} 
         <div class="form-group form-check">
                 {{ form.is_active(class="form-check-input") }}
