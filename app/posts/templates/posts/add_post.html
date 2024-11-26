@@ -1,28 +1,52 @@
-{% for error in form.title.errors %}
-        <small class="form-text text-danger">{{ error }}</small>
-{% endfor %}
 {% from 'form_macros.html' import render_field %}
 {% extends 'base.html' %}
 
-{% block title %} Add post {% endblock %}
+{% block title %}
+    {% if form.title.data %}
+        Edit Post - {{ form.title.data }}
+    {% else %}
+        Add Post
+    {% endif %}
+{% endblock %}
 
 {% block content %}
+    <h1>
+        {% if form.title.data %}
+            Edit Post
+        {% else %}
+            Add Post
+        {% endif %}
+    </h1>
 
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        {{ render_field(form.title, placeholder="Enter title") }} 
-        {{ render_field(form.content) }} 
+
+        {{ render_field(form.title, placeholder="Enter title") }}
+        {% for error in form.title.errors %}
+            <small class="form-text text-danger">{{ error }}</small>
+        {% endfor %}
+
+        {{ render_field(form.content, placeholder="Enter content") }}
+        {% for error in form.content.errors %}
+            <small class="form-text text-danger">{{ error }}</small>
+        {% endfor %}
+
         <div class="form-group form-check">
-                {{ form.is_active(class="form-check-input") }}
-                {{ form.is_active.label(class="form-check-label") }}
-        </div> 
-        {{ render_field(form.publish_date) }} 
-        {{ render_field(form.category) }} 
+            {{ form.is_active(class="form-check-input") }}
+            {{ form.is_active.label(class="form-check-label") }}
+        </div>
+
+        {{ render_field(form.publish_date, type="datetime-local") }}
+
+
+        {{ render_field(form.category) }}
+        {% for error in form.category.errors %}
+            <small class="form-text text-danger">{{ error }}</small>
+        {% endfor %}
+
         {{ form.submit(class="btn btn-primary") }}
     </form>
-    
 
     <br>
-    <a href="{{ url_for('posts.get_posts') }}">Return posts</a>
-
+    <a href="{{ url_for('posts.get_posts') }}">Return to Posts</a>
 {% endblock %}
