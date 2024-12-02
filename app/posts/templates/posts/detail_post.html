@@ -1,16 +1,32 @@
 {% extends 'base.html' %}
-{% block title %} POSTS DETAILS {% endblock %}
+{% block title %} POST DETAILS {% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/post.css') }}">
+{% endblock %}
+
 {% block content %}
 
-    <h1>Post № {{post.id}} — {{post.title}}</h1>
-    <p><strong>Author:</strong> {{ post.author }}</p>
+    <h1>Post № {{ post.id }} — {{ post.title }}</h1>
+    <p><strong>Author:</strong> {{ post.author.username }}</p>
     <p><strong>Category:</strong> {{ post.category }}</p>
     <p><strong>Published:</strong> {{ post.posted.strftime('%Y-%m-%d') }}</p>
+    <p><strong>Tags:</strong></p>
+    <div class="tags-container">
+        {% if post.tags %}
+            {% for tag in post.tags %}
+                <span class="tag">#{{ tag.name }}</span>
+            {% endfor %}
+        {% else %}
+            <p>No tags</p>
+        {% endif %}
+    </div>
     <hr>
-    <p>{{post.content}}</p>
+    <p>{{ post.content }}</p>
     <form method="POST" action="{{ url_for('posts.delete_post', id=post.id) }}" style="display:inline;">
         <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
     </form>
-    <a href="{{ url_for('posts.get_posts')}}">Return posts </a>
+    <a href="{{ url_for('posts.get_posts') }}">Return to Posts</a>
    
-    {% endblock %}
+{% endblock %}

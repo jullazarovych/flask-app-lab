@@ -1,5 +1,11 @@
 {% from 'form_macros.html' import render_field %}
+
 {% extends 'base.html' %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/post.css') }}">
+{% endblock %}
 
 {% block title %}
     {% if form.title.data %}
@@ -44,6 +50,37 @@
             <small class="form-text text-danger">{{ error }}</small>
         {% endfor %}
 
+
+        <div class="form-group">
+            <label for="author_id">Author</label>
+            {{ form.author_id(class="form-control") }}
+        </div>
+        {% for error in form.author_id.errors %}
+            <small class="form-text text-danger">{{ error }}</small>
+        {% endfor %}
+        <div class="form-group">
+            <label for="tags">Tags</label>
+            <div id="tags">
+                {% for tag in form.tags.choices %}
+                    <div class="form-check">
+                        <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="tag_{{ tag[0] }}"
+                            name="tags"
+                            value="{{ tag[0] }}"
+                            {% if form.tags.data and tag[0] in form.tags.data %}checked{% endif %}
+                        >
+                        <label class="form-check-label" for="tag_{{ tag[0] }}">
+                            {{ tag[1] }}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% for error in form.tags.errors %}
+            <small class="form-text text-danger">{{ error }}</small>
+        {% endfor %}
         {{ form.submit(class="btn btn-primary") }}
     </form>
 

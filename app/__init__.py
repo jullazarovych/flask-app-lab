@@ -17,7 +17,7 @@ def create_app(config_name="config"):
     migrate.init_app(app, db)
     with app.app_context():
         from . import view
-
+        from app.users.models import User
         from app.posts import post_bp 
         app.register_blueprint(post_bp)
 

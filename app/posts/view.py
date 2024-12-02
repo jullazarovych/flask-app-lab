@@ -4,28 +4,49 @@ from .forms import PostForm
 import json
 from .utils import load_posts, save_post, get_post
 import os
-from .models import Post
+from .models import Post, Tag
+from app.users.models import User
 from app import db
-from datetime import datetime as dt, date
+from datetime import datetime as dt, date, datetime
 
 @post_bp.route('/add', methods=['GET', 'POST'])
 def add_post():
     form = PostForm()
 
+
+    authors = User.query.all()
+    form.author_id.choices = [(author.id, author.username) for author in authors]
+
+    tags = Tag.query.all()
+    form.tags.choices = [(tag.id, tag.name) for tag in tags]
+    
     if form.validate_on_submit():
+        if isinstance(form.publish_date.data, (datetime, date)):
+            publish_date_str = form.publish_date.data.strftime('%Y-%m-%dT%H:%M')
+            posted_date = datetime.strptime(publish_date_str, '%Y-%m-%dT%H:%M')
+        else:
+            posted_date = datetime.strptime(form.publish_date.data, '%Y-%m-%dT%H:%M')
+
         new_post = Post(
             title=form.title.data,
             content=form.content.data,
             is_active=form.is_active.data,
-            posted=dt.strptime(form.publish_date.data, '%Y-%m-%dT%H:%M'),  
-            category=form.category.data
+             posted=posted_date,  
+            category=form.category.data,
+            user_id=form.author_id.data
         )
+        for tag_id in form.tags.data:
+            tag = Tag.query.get(tag_id)
+            if tag:
+                new_post.tags.append(tag)
         db.session.add(new_post)
         db.session.commit()
         flash(f"Post '{new_post.title}' added successfully!", "success")
         return redirect(url_for('posts.get_posts'))
 
     return render_template("add_post.html", form=form)
+
+
 @post_bp.route('/')
 def get_posts():
     stmt = db.select(Post).order_by(Post.posted.desc())
@@ -34,12 +55,7 @@ def get_posts():
 
 @post_bp.route('/<int:id>')
 def detail_post(id):
-    stmt = db.select(Post)
-    posts = db.session.scalars(stmt).all()
-    total_posts = len(posts)
-    if id > total_posts or id < 1:
-        abort(404)
-    post=posts[id-1]
+    post = db.get_or_404(Post, id)
     return render_template("detail_post.html", post=post)
 
 
