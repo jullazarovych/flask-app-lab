@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Registered Users{% endblock %}
+
+{% block myheader %}
+    <h1 class="my-4 text-center">Registered Users</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            {% if user_count > 0 %}
+                <p class="mb-3">Total Users: <strong>{{ user_count }}</strong></p>
+                <ul class="list-group">
+                    {% for user in users %}
+                        <li class="list-group-item">{{ user.username }} - {{ user.email }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="alert alert-warning" role="alert">
+                    No registered users found.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="{{ url_for('user_name.get_profile') }}" class="btn btn-primary">Back to Profile</a>
+    </div>
+{% endblock %}
