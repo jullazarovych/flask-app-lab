@@ -31,26 +31,6 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
-class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[
-        DataRequired(),
-        Length(min=4, max=14, message="This field is required and must be between 4 and 14 characters long"),
-        Regexp("^[A-Za-z][A-Za-z0-9_.]*$", message="Username must start with a letter and contain only letters, numbers, dots, or underscores.")
-    ])
-    email = StringField('Email', validators=[
-        DataRequired(),
-        Email(message="This field is required and must be a valid email")
-    ])
-    password = PasswordField('Password', validators=[
-        DataRequired(),
-        Length(min=6, message="This field must be at least 6 characters long")
-    ])
-    confirm_password = PasswordField('Confirm Password', validators=[
-        DataRequired(),
-        EqualTo('password', message="Password confirmation does not match the password")
-    ])
-    submit = SubmitField('Sign up')
-
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[
