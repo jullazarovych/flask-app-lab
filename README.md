@@ -1,6 +1,8 @@
 логін
-![image](https://github.com/user-attachments/assets/3c2a27cd-bd20-4c6e-aa1e-7cf1d5b99781)
-![image](https://github.com/user-attachments/assets/950306b0-a1be-4df3-adde-cd8c7e1e4054)
+![image](https://github.com/user-attachments/assets/090b714b-eb19-4da3-92ee-2fd04dab8669)
+![image](https://github.com/user-attachments/assets/f9a07626-49bd-4df7-8b31-0cbf7d028bd0)
+спроба ввійти з неправильним паролем
+![image](https://github.com/user-attachments/assets/f68c17bb-b920-4415-b392-f6ae8902cc8e)
 спроба зареєструвати юзера з вже використовуваними даними
 ![image](https://github.com/user-attachments/assets/a918ea52-6675-4a62-8ba2-09ec297999b5)
 викорситовуючи інші дані аккаунт створюєтьс без помилок
