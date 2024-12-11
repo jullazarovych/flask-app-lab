@@ -5,11 +5,12 @@
 ![image](https://github.com/user-attachments/assets/f68c17bb-b920-4415-b392-f6ae8902cc8e)
 спроба зареєструвати юзера з вже використовуваними даними
 ![image](https://github.com/user-attachments/assets/a918ea52-6675-4a62-8ba2-09ec297999b5)
-викорситовуючи інші дані аккаунт створюєтьс без помилок
+викориcтовуючи інші дані аккаунт реєструється без помилок
 ![image](https://github.com/user-attachments/assets/0eff38ed-077e-4c01-82a7-a405a3fe4357)
 спроба дістатись по урлу до аккаунту без попереднього логіну
 ![image](https://github.com/user-attachments/assets/69817df8-c02d-4729-9d08-e2959bd8e7f1)
-![image](https://github.com/user-attachments/assets/8fc36948-e177-4402-88df-e14b85dc38c8)
+![image](https://github.com/user-attachments/assets/6b3e8159-1414-4279-8087-6bcc875e3dad)
+
 тести:
 1)перевірка коректного завантаження сторінок реєстрації та входу (Views Tests)
 ![image](https://github.com/user-attachments/assets/58056fe7-fc33-4246-9c8a-e06fbd0b6c41)
