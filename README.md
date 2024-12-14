@@ -1,4 +1,5 @@
-#LAB-10
+# *LAB-10*
+---
 загальний вигляд акаунту
 ![image](https://github.com/user-attachments/assets/718380cd-c388-4455-bdfe-73cf5d6aa6a3)
 зміна фотографій
@@ -21,7 +22,8 @@
 
 
 
-#LAB-9
+# *LAB-9*
+---
 логін
 ![image](https://github.com/user-attachments/assets/3c2a27cd-bd20-4c6e-aa1e-7cf1d5b99781)
 ![image](https://github.com/user-attachments/assets/950306b0-a1be-4df3-adde-cd8c7e1e4054)
