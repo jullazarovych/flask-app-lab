@@ -110,8 +110,11 @@ def account():
         form.username.data = current_user.username
         form.email.data = current_user.email
 
-    image_file = url_for('user_name.static', filename='profile_pics/' + current_user.image_file) 
-    
+    image_path = os.path.join(users_bp.static_folder, 'profile_pics', current_user.image_file)
+    if current_user.image_file and os.path.isfile(image_path):
+        image_file = url_for('user_name.static', filename='profile_pics/' + current_user.image_file)
+    else:
+        image_file = url_for('user_name.static', filename='profile_pics/profile_default.jpg')
     return render_template("account.html", username=current_user.username, email=current_user.email, image_file=image_file, form=form)
 
 @users_bp.route('/register', methods=['GET', 'POST'])
