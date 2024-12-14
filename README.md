@@ -8,6 +8,11 @@
 ![image](https://github.com/user-attachments/assets/ab946a19-cf10-4c46-a15c-2e79ab4d0582)
 бд
 ![image](https://github.com/user-attachments/assets/87139b23-da63-47dc-a5c0-43b233816aba)
+якщо видалити фотку з папки, зображення зміниться на дефолтне
+![image](https://github.com/user-attachments/assets/1429a683-0c5c-4f48-b062-369850311b60)
+![image](https://github.com/user-attachments/assets/f81d10a7-0f70-42db-84ba-1c7cea06bd99)
+![image](https://github.com/user-attachments/assets/3ff67342-2ab5-4b14-8194-3893e1507994)
+
 зміна about me
 ![image](https://github.com/user-attachments/assets/3fa4a73e-ffe4-40d1-be9b-62d821acb858)
 ![image](https://github.com/user-attachments/assets/45bffa9b-da8f-46c8-9b05-bfd3fbe379d6)
