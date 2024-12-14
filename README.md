@@ -1,3 +1,27 @@
+#LAB-10
+загальний вигляд акаунту
+![image](https://github.com/user-attachments/assets/718380cd-c388-4455-bdfe-73cf5d6aa6a3)
+зміна фотографій
+![image](https://github.com/user-attachments/assets/d2eacb0b-053e-4acb-9bae-0e1f5197b46b)
+![image](https://github.com/user-attachments/assets/6bdf3800-f803-4193-964f-a1ae9676b391)
+![image](https://github.com/user-attachments/assets/ab946a19-cf10-4c46-a15c-2e79ab4d0582)
+бд
+![image](https://github.com/user-attachments/assets/87139b23-da63-47dc-a5c0-43b233816aba)
+зміна about me
+![image](https://github.com/user-attachments/assets/3fa4a73e-ffe4-40d1-be9b-62d821acb858)
+![image](https://github.com/user-attachments/assets/45bffa9b-da8f-46c8-9b05-bfd3fbe379d6)
+пароль до зміни
+![image](https://github.com/user-attachments/assets/04263e4f-6ba5-441c-84d3-03d5db33fdab)
+пароль псіля зміни
+![image](https://github.com/user-attachments/assets/7cbd7236-5da3-419c-87ef-5b65ed9d4fe1)
+правила зміни паролю в дії
+![image](https://github.com/user-attachments/assets/6e602bcd-3560-45ae-a3c0-523697730dcf)
+
+
+
+
+
+#LAB-9
 логін
 ![image](https://github.com/user-attachments/assets/3c2a27cd-bd20-4c6e-aa1e-7cf1d5b99781)
 ![image](https://github.com/user-attachments/assets/950306b0-a1be-4df3-adde-cd8c7e1e4054)
