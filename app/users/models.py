@@ -16,6 +16,12 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), nullable=False, unique=True)
     password_hash = db.Column(db.String(128), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    image_file = db.Column(db.String(20), nullable=True, default='profile_default.jpg')
+    about_me = db.Column(db.String(500), nullable=True)  # Поле для опису користувача
+    last_seen = db.Column(db.DateTime, default=datetime.utcnow)  # Поле для збереження часу останнього входу
+
+    def __repr__(self):
+        return f"User('{self.username}', '{self.email}', '{self.image_file}', '{self.last_seen}')"
 
     def __init__(self, username, email, password):
         self.username = username
@@ -27,10 +33,6 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password_hash, password)
-
-    def __repr__(self):
-        return f"User('{self.username}', '{self.email}')"
-
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[

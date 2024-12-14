@@ -1,11 +1,16 @@
 from flask import render_template, request, url_for, redirect, make_response, session, flash
 from datetime import timedelta, datetime
+from flask import current_app
 from app import login_manager
 from flask_login import login_user, logout_user, current_user, login_required
 from . import  users_bp
-from app.users.forms import RegistrationForm
+from app.users.forms import RegistrationForm, UpdateAccountForm
 from app.users.models import User, LoginForm
 from app import db
+from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash
+from PIL import Image
+import os
 
 VALID_USERNAME = "student"
 VALID_PASSWORD = "12345678"
@@ -43,19 +48,77 @@ def login():
 
     return render_template('login.html', form=form)
 
+from PIL import Image
+import os
+from werkzeug.utils import secure_filename
 
-@users_bp.route("/account")
+def save_picture(form_picture):
+    try:
+        filename = secure_filename(form_picture.filename)
+        picture_folder = os.path.join(users_bp.static_folder, 'profile_pics')
+        if not os.path.exists(picture_folder):
+            os.makedirs(picture_folder)
+
+        picture_path = os.path.join(picture_folder, filename)
+
+        image = Image.open(form_picture)
+
+        min_side = min(image.size)  
+        left = (image.width - min_side) / 2
+        top = (image.height - min_side) / 2
+        right = (image.width + min_side) / 2
+        bottom = (image.height + min_side) / 2
+
+        image = image.crop((left, top, right, bottom))
+        output_size = (150, 150)
+        image.thumbnail(output_size)
+        image.save(picture_path)
+
+        return filename
+    except Exception as e:
+        return None
+
+
+@users_bp.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
-    username = current_user.username
-    email = current_user.email
-    return render_template("account.html", username=username, email=email)
+    form = UpdateAccountForm(username=current_user.username, email=current_user.email, about_me=current_user.about_me)
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            if picture_file:
+                current_user.image_file = picture_file
+            else:
+                flash("Failed to save picture")
+
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        current_user.about_me = form.about_me.data
+        if form.password.data:
+            current_user.set_password(form.password.data)
+            flash('Your password has been updated!', 'success')
+
+        db.session.commit()
+        flash('Your account has been updated!', 'success')
+        
+        return redirect(url_for('user_name.account'))
+    elif (form.validate_on_submit()!=True):
+        for field, errors in form.errors.items():
+            for error in errors:
+                flash(f"Error in {field}: {error}", 'danger')
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+
+    image_file = url_for('user_name.static', filename='profile_pics/' + current_user.image_file) 
     
+    return render_template("account.html", username=current_user.username, email=current_user.email, image_file=image_file, form=form)
+
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data, password=form.password.data)
+        user = User(username=form.username.data, email=form.email.data, password=form.password.data, image_file='profile_default.jpg')
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created!', 'success')
