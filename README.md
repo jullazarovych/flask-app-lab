@@ -1,4 +1,4 @@
-# *LAB-10*
+![image](https://github.com/user-attachments/assets/79441919-936b-4d21-992b-250b724aef21)# *LAB-10*
 ---
 загальний вигляд акаунту
 ![image](https://github.com/user-attachments/assets/718380cd-c388-4455-bdfe-73cf5d6aa6a3)
@@ -18,10 +18,10 @@
 правила зміни паролю в дії
 ![image](https://github.com/user-attachments/assets/6e602bcd-3560-45ae-a3c0-523697730dcf)
 
-
-
-
-
+---
+---
+---
+---
 # *LAB-9*
 ---
 логін
