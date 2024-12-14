@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/79441919-936b-4d21-992b-250b724aef21)# *LAB-10*
+# *LAB-10*
 ---
 загальний вигляд акаунту
 ![image](https://github.com/user-attachments/assets/718380cd-c388-4455-bdfe-73cf5d6aa6a3)
