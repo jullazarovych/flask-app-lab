@@ -13,10 +13,10 @@ class Announcement(db.Model):
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=db.func.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)  # Поле для збереження ID власника
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)  
 
-    user = db.relationship('User', backref='announcements')  # Відношення до моделі User
-    topics = db.relationship('Topic', secondary=announcement_topics, back_populates='announcements')  # Змінено з topic на topics
+    user = db.relationship('User', backref='announcements')  
+    topics = db.relationship('Topic', secondary=announcement_topics, back_populates='announcements')  
 
     def __repr__(self):
         return f"<Announcement {self.name}>"
