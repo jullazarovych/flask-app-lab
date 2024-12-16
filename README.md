@@ -1,7 +1,8 @@
-#САМОСТІЙНА РОБОТА варіант 13 — оголошення
+# САМОСТІЙНА РОБОТА варіант 13 — оголошення
 1) окремий блюпринт
 ![image](https://github.com/user-attachments/assets/8ecef7dc-58f9-4349-94c0-2f93fdecf80a)
-2) дві моделі, зв'язок багато до багатьох
+
+3) дві моделі, зв'язок багато до багатьох
 ![image](https://github.com/user-attachments/assets/8186213e-f868-424b-b5fb-0d0104803891)
 3)міграції
 ![image](https://github.com/user-attachments/assets/bb33f7cf-7241-4d87-ad2d-091111913def)
