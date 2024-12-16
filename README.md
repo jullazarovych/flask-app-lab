@@ -1,17 +1,26 @@
-логін
-![image](https://github.com/user-attachments/assets/3c2a27cd-bd20-4c6e-aa1e-7cf1d5b99781)
-![image](https://github.com/user-attachments/assets/950306b0-a1be-4df3-adde-cd8c7e1e4054)
-спроба зареєструвати юзера з вже використовуваними даними
-![image](https://github.com/user-attachments/assets/a918ea52-6675-4a62-8ba2-09ec297999b5)
-викорситовуючи інші дані аккаунт створюєтьс без помилок
-![image](https://github.com/user-attachments/assets/0eff38ed-077e-4c01-82a7-a405a3fe4357)
-спроба дістатись по урлу до аккаунту без попереднього логіну
-![image](https://github.com/user-attachments/assets/69817df8-c02d-4729-9d08-e2959bd8e7f1)
-![image](https://github.com/user-attachments/assets/8fc36948-e177-4402-88df-e14b85dc38c8)
-тести:
-1)перевірка коректного завантаження сторінок реєстрації та входу (Views Tests)
-![image](https://github.com/user-attachments/assets/58056fe7-fc33-4246-9c8a-e06fbd0b6c41)
-2)коректного збереження користувача у БД при реєстрації
-![image](https://github.com/user-attachments/assets/406be8cd-da7b-42f5-8557-c6a0cad72d77)
-3)тестування входу і виходу користувача на сайті
-![image](https://github.com/user-attachments/assets/e80821a0-9f3e-4235-bd25-f43e05a673d1)
+# САМОСТІЙНА РОБОТА варіант 13 — оголошення
+1) окремий блюпринт
+![image](https://github.com/user-attachments/assets/8ecef7dc-58f9-4349-94c0-2f93fdecf80a)
+
+3) дві моделі, зв'язок багато до багатьох
+![image](https://github.com/user-attachments/assets/8186213e-f868-424b-b5fb-0d0104803891)
+3)міграції
+![image](https://github.com/user-attachments/assets/bb33f7cf-7241-4d87-ad2d-091111913def)
+4) форма створення
+![image](https://github.com/user-attachments/assets/88e8510f-72bc-443f-aaa6-a34fe2f88867)
+5) збереження в бд
+![image](https://github.com/user-attachments/assets/017da12d-ccfd-411c-9c0d-43efbe0d62be)
+![image](https://github.com/user-attachments/assets/d7733f75-2a0f-4333-a0d8-e1924c8e9420)
+6) всі оголошення
+![image](https://github.com/user-attachments/assets/f9d6327e-a6bf-4798-a09b-8e8be6f856ab)
+![image](https://github.com/user-attachments/assets/fd3392bc-0d70-46a4-a812-1e66d44c9c0d)
+![image](https://github.com/user-attachments/assets/e82f5d82-e9c9-4804-9a6f-e48a5f24f841)
+![image](https://github.com/user-attachments/assets/aaf1d572-8d75-4251-b09a-bcbf23a62673)
+![image](https://github.com/user-attachments/assets/57c0c90e-1f5f-46a7-8fb8-39d152f712e9)
+7) деталі
+![image](https://github.com/user-attachments/assets/5f8d3353-3ce5-40a4-956c-55c5b2b9d983)
+8, 10) для оголошень що створені юзером, який зараз залогінений, з'являються кнопки видалити ат оновити оголошення
+![image](https://github.com/user-attachments/assets/cb253d1f-d75b-48de-8532-84909b2e008b)
+якщо спробувати не власнику відредагувати оголошення пишачи урлу, йому видає, що дозвіл заборонений  
+![image](https://github.com/user-attachments/assets/0b8fadc3-9683-4769-9fbd-200b2656a9a6)
+9) bootstrap використовується
