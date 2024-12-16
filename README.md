@@ -19,8 +19,8 @@
 ![image](https://github.com/user-attachments/assets/57c0c90e-1f5f-46a7-8fb8-39d152f712e9)
 7) деталі
 ![image](https://github.com/user-attachments/assets/5f8d3353-3ce5-40a4-956c-55c5b2b9d983)
-8, 10) для оголошень що створені юзером, який зараз залогінений, з'являються кнопки видалити ат оновити оголошення
+8, 9, 10) для оголошень що створені юзером, який зараз залогінений, з'являються кнопки видалити та оновити оголошення
 ![image](https://github.com/user-attachments/assets/cb253d1f-d75b-48de-8532-84909b2e008b)
 якщо спробувати не власнику відредагувати оголошення пишачи урлу, йому видає, що дозвіл заборонений  
 ![image](https://github.com/user-attachments/assets/0b8fadc3-9683-4769-9fbd-200b2656a9a6)
-9) bootstrap використовується
+bootstrap використовується
