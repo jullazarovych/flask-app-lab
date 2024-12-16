@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Announcements{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/ann.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Announcements</h1>
+
+    <form method="GET" action="{{ url_for('announce.announcements') }}" class="row g-3 mb-4">
+        <div class="col-md-4">
+            <input type="text" name="search" class="form-control" placeholder="Search by name" value="{{ search_query }}">
+        </div>
+        <div class="col-md-3">
+            <select name="sort_by" class="form-select">
+                <option value="name" {% if sort_by == 'name' %}selected{% endif %}>Name</option>
+                <option value="created_at" {% if sort_by == 'created_at' %}selected{% endif %}>Created At</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select name="sort_order" class="form-select">
+                <option value="asc" {% if sort_order == 'asc' %}selected{% endif %}>Ascending</option>
+                <option value="desc" {% if sort_order == 'desc' %}selected{% endif %}>Descending</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Search</button>
+        </div>
+    </form>
+
+    <div class="card-container">
+        {% for announcement in announcements %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ announcement.name.split()[:2] | join(' ') }}...</h5>
+                    <p class="card-text">{{ announcement.description.split()[:3] | join(' ') }}...</p>
+                    <p class="text-muted">
+                        <small>Created At: {{ announcement.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+                    </p>
+                    <div class="mb-3">
+                        {% for topic in announcement.topics %}
+                            <span class="badge bg-secondary">{{ topic.name }}</span>
+                        {% endfor %}
+                    </div>
+                    <a href="{{ url_for('announce.announcement_detail', id=announcement.id) }}" class="a">View Details</a>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-12">
+                <p class="text-center">No announcements found.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

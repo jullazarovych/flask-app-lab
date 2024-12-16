@@ -1,9 +1,7 @@
 from flask import render_template, abort, flash,redirect, url_for, session
 from . import  post_bp
 from .forms import PostForm
-import json
 from .utils import load_posts, save_post, get_post
-import os
 from .models import Post, Tag
 from app.users.models import User
 from app import db

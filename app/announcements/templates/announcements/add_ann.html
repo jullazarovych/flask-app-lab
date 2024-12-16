@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Create Announcement{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/ann.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Create a New Announcement</h1>
+    
+    <form method="POST" class="needs-validation" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control", placeholder="Enter announcement name", required=true) }}
+            <div class="invalid-feedback">
+                Please provide a name for the announcement.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control", rows=5, placeholder="Enter announcement description", required=true) }}
+            <div class="invalid-feedback">
+                Please provide a description for the announcement.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            {{ form.topics.label(class="form-label") }}
+            {{ form.topics(class="form-select", multiple=true) }}
+            <small class="form-text text-muted">Hold Ctrl (Windows) / Command (Mac) to select multiple topics.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg w-100">Create Announcement</button>
+    </form>
+
+    <div class="text-center mt-4">
+        <a href="{{ url_for('announce.announcements') }}" class="btn btn-outline-secondary">Return to Announcements</a>
+    </div>
+</div>
+{% endblock %}

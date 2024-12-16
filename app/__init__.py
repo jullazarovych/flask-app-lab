@@ -32,7 +32,11 @@ def create_app(config_name="default"):
 
         from app.users import users_bp
         app.register_blueprint(users_bp, url_prefix="/users")
+
+        from app.announcements import announce_bp
+        app.register_blueprint(announce_bp, url_prefix="/announcements")
         
+        from app.announcements.models import Announcement, Topic
         @login_manager.user_loader
         def load_user(user_id):
             return User.query.get(int(user_id))
